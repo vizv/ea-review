@@ -1,0 +1,15 @@
+user:
+  id: primary_key
+  name: String
+
+post:
+  id: primary_key
+  title: String
+  content: String
+  author_id: foreign_key (user.id)
+
+comment:
+  id: primary_key
+  content: String
+  author_id: foreign_key (user.id)
+  post_id: foreign_key (post.id)

@@ -18,7 +18,7 @@
 ### Stage 0 - Preparation
 
 - [X] ~~Clarify requirements~~
-- [ ] Define data schema
+- [X] ~~Define data schema~~
 - [ ] Design API
 - [ ] Skeleton for front-end and back-end
 
