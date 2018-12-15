@@ -1,6 +1,6 @@
 module EAReviewApp
   class PostsController < Sinatra::Base
-    get '/posts/:post_id' do
+    get '/post/:post_id' do
       json stub: 'FIXME'
     end
   end
