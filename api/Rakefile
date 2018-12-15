@@ -1,0 +1,6 @@
+desc "Start the API Server through rackup."
+task :serve do
+  `rerun --notify notify-send rackup`
+end
+
+task default: :serve
