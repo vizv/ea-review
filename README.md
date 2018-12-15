@@ -24,29 +24,29 @@
 
 ### Stage 1 - MVP
 
-- [ ] Feature: article display
-  - [ ] View for article display with mocked data
-  - [ ] Endpoint for article display with mocked data
-  - [ ] Integration of article display
-- [ ] Feature: article listing
-  - [ ] View for article listing with mocked data
-  - [ ] Endpoint for article listing with mocked data
-  - [ ] Integration of article listing
+- [ ] Feature: post display
+  - [ ] View for post display with mocked data
+  - [ ] Endpoint for post display with mocked data
+  - [ ] Integration of post display
+- [ ] Feature: post listing
+  - [ ] View for post listing with mocked data
+  - [ ] Endpoint for post listing with mocked data
+  - [ ] Integration of post listing
 - [ ] Database integration & mocking
 
 ### Stage 2 - Improvements
 
-- [ ] Feature: article listing & authorization
+- [ ] Feature: post listing & authorization
   - [ ] Authentication integration
   - [ ] View for login
   - [ ] Endpoint for login
   - [ ] Authorization integration
-- [ ] Feature: article creation
-  - [ ] View for article creation
-  - [ ] Endpoint for article creation
-- [ ] Feature: article editing
-  - [ ] View for article editing
-  - [ ] Endpoint for article editing
+- [ ] Feature: post creation
+  - [ ] View for post creation
+  - [ ] Endpoint for post creation
+- [ ] Feature: post editing
+  - [ ] View for post editing
+  - [ ] Endpoint for post editing
 - [ ] Feature: comment creation
   - [ ] View for comment creation
   - [ ] Endpoint for comment creation
@@ -54,7 +54,7 @@
   - [ ] View for comment editing
   - [ ] Endpoint for comment editing
 - [ ] Feature: comment deletion
-- [ ] Feature: article deletion
+- [ ] Feature: post deletion
 
 ### Stage 3 - Bonus
 
