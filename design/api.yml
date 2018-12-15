@@ -1,0 +1,57 @@
+/post/:id:
+  description: display a post with its comments
+  response:
+    type: object
+    properties:
+      id:
+        type: integer
+      title:
+        type: string
+      content:
+        type: string
+      author:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+      comments:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+            content:
+              type: string
+            author:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+
+/posts:
+  description: display a list of posts with their ids, titles, authors, and numbers of comments
+  response:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        author:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+        comments_count:
+          type: integer
+
+# ...more APIs for the next stage
