@@ -1,0 +1,18 @@
+version: '2.4'
+
+services:
+  nginx:
+    container_name: ea-review.nginx
+    image: ea-review-ui:latest
+    ports:
+      - '80:80/tcp'
+    networks:
+      - ea-review-demo
+  api:
+    container_name: ea-review.api
+    image: ea-review-api:latest
+    networks:
+      - ea-review-demo
+
+networks:
+  ea-review-demo:

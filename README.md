@@ -7,11 +7,11 @@
 
 ## Non-functional Requirements
 
-- [ ] The code should be production ready and could be supported by a team.
-- [ ] The application must have a build system
-  - [ ] The application build should be built or compiled in a docker container
-  - [ ] The application build should produce a docker container image as an artifact
-  - [ ] The application should not have any runtime dependencies
+- [X] ~~The code should be production ready and could be supported by a team~~
+- [X] ~~The application must have a build system~~
+  - [X] ~~The application build should be built or compiled in a docker container~~
+  - [X] ~~The application build should produce a docker container image as an artifact~~
+  - [X] ~~The application should not have any runtime dependencies~~
 
 ## Tasks
 
@@ -20,7 +20,7 @@
 - [X] ~~Clarify requirements~~
 - [X] ~~Define data schema~~
 - [X] ~~Design API for the Stage 1~~
-- [ ] Skeleton for front-end and back-end
+- [X] ~~Skeleton for front-end and back-end~~
 
 ### Stage 1 - MVP
 
