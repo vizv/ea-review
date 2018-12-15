@@ -19,7 +19,7 @@
 
 - [X] ~~Clarify requirements~~
 - [X] ~~Define data schema~~
-- [ ] Design API
+- [X] ~~Design API for the Stage 1~~
 - [ ] Skeleton for front-end and back-end
 
 ### Stage 1 - MVP
@@ -33,6 +33,8 @@
   - [ ] Endpoint for post listing with mocked data
   - [ ] Integration of post listing
 - [ ] Database integration & mocking
+- [ ] Update data schema for the Stage 2
+- [ ] Design API for the Stage 2
 
 ### Stage 2 - Improvements
 
@@ -55,6 +57,7 @@
   - [ ] Endpoint for comment editing
 - [ ] Feature: comment deletion
 - [ ] Feature: post deletion
+- [ ] Design API for the Stage 3
 
 ### Stage 3 - Bonus
 
