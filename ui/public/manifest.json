@@ -1,0 +1,8 @@
+{
+  "name": "ea-review-ui",
+  "short_name": "review-ui",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#4DBA87"
+}
