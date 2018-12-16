@@ -25,7 +25,7 @@
 ### Stage 1 - MVP
 
 - [ ] Feature: post display
-  - [ ] View for post display with mocked data
+  - [X] ~~View for post display with mocked data~~
   - [ ] Endpoint for post display with mocked data
   - [ ] Integration of post display
 - [ ] Feature: post listing
