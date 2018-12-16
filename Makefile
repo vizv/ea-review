@@ -4,7 +4,7 @@ PROJNAME := ea-review
 
 all: images/ui.tar images/api.tar
 
-images/%.tar: docker/%
+images/%.tar: docker/% %
 	mkdir -p images
 	docker build --tag  $(PROJNAME)-$(basename $(notdir $@)) \
                --file docker/$(basename $(notdir $@))/Dockerfile .
