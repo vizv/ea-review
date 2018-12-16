@@ -28,10 +28,10 @@
   - [X] ~~View for post display with mocked data~~
   - [X] ~~Endpoint for post display with mocked data~~
   - [X] ~~Integration of post display~~
-- [ ] Feature: post listing
+- [X] ~~Feature: post listing~~
   - [X] ~~View for post listing with mocked data~~
   - [X] ~~Endpoint for post listing with mocked data~~
-  - [ ] Integration of post listing
+  - [X] ~~Integration of post listing~~
 - [ ] Database integration & mocking
 - [ ] Update data schema for the Stage 2
 - [ ] Design API for the Stage 2
