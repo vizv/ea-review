@@ -2,8 +2,8 @@
 
 ## Acceptance Criteria
 
-- [ ] A blog post will show a title, article text (plain text) and an author name
-- [ ] Comments are made on blog posts and show comment text (plain text) and an author name
+- [X] ~~A blog post will show a title, article text (plain text) and an author name~~
+- [X] ~~Comments are made on blog posts and show comment text (plain text) and an author name~~
 
 ## Non-functional Requirements
 
@@ -24,10 +24,10 @@
 
 ### Stage 1 - MVP
 
-- [X] Feature: post display
+- [X] ~~Feature: post display~~
   - [X] ~~View for post display with mocked data~~
   - [X] ~~Endpoint for post display with mocked data~~
-  - [X] Integration of post display
+  - [X] ~~Integration of post display~~
 - [ ] Feature: post listing
   - [ ] View for post listing with mocked data
   - [ ] Endpoint for post listing with mocked data
