@@ -1,42 +1,62 @@
 <template lang="pug">
 v-container
   template(v-if="post")
-    article.post
-      .header
-        h1.headline {{post.title}}
-        address.author By #[a(rel="author").name {{post.author.name}}]
-      .content
-        p(
-          v-for="(paragraph, index) in paragraphsOf(post.content)"
-          :key="index"
-        ) {{paragraph}}
-    .comments
-      .comment(
-        v-for="comment in post.comments"
-        :key="comment.id"
-      )
-        address.author
-          | Comment from #[a(rel="author").name {{comment.author.name}}]:
+    v-alert(v-if="post.error" color="error" :value="true")
+      | Error: {{post.error}}, click #[a(@click="loadData()") HERE] to reload.
+    template(v-else)
+      article.post
+        .header
+          h1.headline {{post.title}}
+          address.author By #[a(rel="author").name {{post.author.name}}]
         .content
           p(
-            v-for="(paragraph, index) in paragraphsOf(comment.content)"
+            v-for="(paragraph, index) in paragraphsOf(post.content)"
             :key="index"
           ) {{paragraph}}
+      .comments
+        .comment(
+          v-for="comment in post.comments"
+          :key="comment.id"
+        )
+          address.author
+            | Comment from #[a(rel="author").name {{comment.author.name}}]:
+          .content
+            p(
+              v-for="(paragraph, index) in paragraphsOf(comment.content)"
+              :key="index"
+            ) {{paragraph}}
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
 import Post from '@/types/post.type'
+import RequestError from '@/types/request-error.type'
 
 @Component
 class PostsShow extends Vue {
-  post: Post | null = null
+  post: Post | RequestError | null = null
+
+  async loadData () {
+    this.post = null
+
+    try {
+      const request = await fetch(`/api/v1/post/${this.$route.params.post_id}`)
+
+      const data = await request.json()
+      if (data.hasOwnProperty('error')) throw data as RequestError
+
+      this.post = data as Post
+    } catch (ex) {
+      if (!(<RequestError>ex).error) {
+        ex = ({error: 'failed to request this post'} as RequestError)
+      }
+      this.post = ex
+    }
+  }
 
   async created () {
-    // FIXME: handle error
-    const data = await fetch(`/api/v1/post/${this.$route.params.post_id}`)
-    this.post = await data.json() as Post
+    this.loadData()
   }
 
   paragraphsOf (content: string) {

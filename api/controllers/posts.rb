@@ -1,11 +1,15 @@
 class PostsController < Sinatra::Base
   get '/posts' do
-    # FIXME: handle error
-    json(Post.all.map(&:to_info_h))
+    # FIXME: add pagination
+    posts = Post.all
+
+    json(posts.map(&:to_info_h))
   end
 
   get '/post/:post_id' do
-    # FIXME: handle error
-    json(Post[params['post_id'].to_i].to_h)
+    post = Post[params['post_id'].to_i]
+    halt 404, json(error: 'post not found') if post.nil?
+
+    json(post.to_h)
   end
 end
