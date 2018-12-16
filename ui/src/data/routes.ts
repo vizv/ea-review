@@ -1,7 +1,12 @@
 const routes = [
   {
     path: '*',
-    redirect: '/post/1'
+    redirect: '/posts'
+  },
+  {
+    path: '/posts',
+    name: 'posts-index',
+    component: () => import(/* webpackChunkName: "posts-index" */ '@/views/posts/index.vue')
   },
   {
     path: '/post/:post_id',

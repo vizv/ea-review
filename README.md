@@ -29,7 +29,7 @@
   - [X] ~~Endpoint for post display with mocked data~~
   - [X] ~~Integration of post display~~
 - [ ] Feature: post listing
-  - [ ] View for post listing with mocked data
+  - [X] ~~View for post listing with mocked data~~
   - [ ] Endpoint for post listing with mocked data
   - [ ] Integration of post listing
 - [ ] Database integration & mocking
