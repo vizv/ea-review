@@ -3,7 +3,7 @@ import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import './registerServiceWorker'
+// import './registerServiceWorker'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 
 Vue.config.productionTip = false

@@ -1,26 +1,27 @@
 <template lang="pug">
 v-container
-  article.post(v-if="post")
-    .header
-      h1.headline {{post.title}}
-      address.author By #[a(rel="author").name {{post.author.name}}]
-    .content
-      p(
-        v-for="(paragraph, index) in paragraphsOf(post.content)"
-        :key="index"
-      ) {{paragraph}}
-  .comments
-    .comment(
-      v-for="comment in post.comments"
-      :key="comment.id"
-    )
-      address.author
-        | Comment from #[a(rel="author").name {{comment.author.name}}]:
+  template(v-if="post")
+    article.post
+      .header
+        h1.headline {{post.title}}
+        address.author By #[a(rel="author").name {{post.author.name}}]
       .content
         p(
-          v-for="(paragraph, index) in paragraphsOf(comment.content)"
+          v-for="(paragraph, index) in paragraphsOf(post.content)"
           :key="index"
         ) {{paragraph}}
+    .comments
+      .comment(
+        v-for="comment in post.comments"
+        :key="comment.id"
+      )
+        address.author
+          | Comment from #[a(rel="author").name {{comment.author.name}}]:
+        .content
+          p(
+            v-for="(paragraph, index) in paragraphsOf(comment.content)"
+            :key="index"
+          ) {{paragraph}}
 </template>
 
 <script lang="ts">
