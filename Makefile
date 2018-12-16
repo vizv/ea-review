@@ -21,5 +21,3 @@ up: all
 down:
 	docker-compose --project-name $(PROJNAME) \
                  --file docker/docker-compose.yml down
-
-down:

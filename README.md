@@ -1,5 +1,37 @@
 # EA Take-home Testing - Game Review Site
 
+## Deployment Guide
+
+### Requirements
+
+#### Build-time
+
+- Docker (>= 17.12.0, recommended: 18.09.0)
+- Docker Compose (>= 1.21.0, recommended: 1.23.1)
+- GNU Make
+
+#### Run-time
+
+- Docker (>= 17.12.0)
+
+### Running in local machine
+
+Just run with `make up`.
+
+### Build the Docker images and run on another host
+
+1. run `make`
+2. copy generated images from `images` directory to the remote host
+3. use `docker load` to load these images
+4. run both containers within the same Docker network
+
+### Note
+
+* Source for front-end can be found in `ui` directory
+* Source for back-end can be found in `api` directory
+* All Docker-related files (Dockerfile, Docker Compose file, and other supported files) can be found in `docker` directory
+* As requested, a in-memory database (SQLite) will start along with the API server, and fake data will be generated for demo purpose.
+
 ## Acceptance Criteria
 
 - [X] ~~A blog post will show a title, article text (plain text) and an author name~~
