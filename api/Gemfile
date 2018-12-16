@@ -1,0 +1,15 @@
+source 'https://rubygems.org'
+
+ruby '2.5.1'
+
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'sequel'
+gem 'sqlite3'
+gem 'faker'
+
+group :development, :test do
+  gem 'rake'
+  gem 'rerun'
+  gem 'thin'
+end
