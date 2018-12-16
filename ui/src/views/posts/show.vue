@@ -1,6 +1,7 @@
 <template lang="pug">
 v-container
   template(v-if="data")
+    //- FIXME: refactor alert message to a component
     v-alert(v-if="data.error" color="error" :value="true")
       | Error: {{data.error}}, click #[a(@click="loadData()") HERE] to reload.
     template(v-else)

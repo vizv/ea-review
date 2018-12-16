@@ -1,9 +1,17 @@
 class PostsController < Sinatra::Base
   get '/posts' do
-    # FIXME: add pagination
-    posts = Post.all
+    # simple filter
+    params['page'] ||= 1
+    page = params['page'].to_i
 
-    json(posts: posts.map(&:to_info_h))
+    limit = 20
+    curr = page < 1 ? 1 : page
+    last = (Post.count - 1) / limit + 1
+    offset = (curr - 1) * limit
+
+    posts = Post.limit(limit, offset).all
+
+    json(posts: posts.map(&:to_info_h), page: {curr: curr, last: last})
   end
 
   get '/post/:post_id' do
