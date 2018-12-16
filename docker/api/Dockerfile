@@ -4,7 +4,10 @@ RUN gem install bundler -v 1.17.1
 WORKDIR /app
 
 COPY api/Gemfile api/Gemfile.lock /app/
-RUN bundle install --deployment --without test development
+RUN apk --no-cache add --virtual .builddeps build-base sqlite-dev \
+ && apk --no-cache add --virtual .runtimedeps sqlite-libs \
+ && bundle install --deployment --without test development \
+ && apk del .builddeps
 
 COPY api /app
 

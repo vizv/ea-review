@@ -1,6 +1,6 @@
 class Post < Sequel::Model(:posts)
   one_to_many :comments, eager: [:author]
-  many_to_one :author, class: User
+  many_to_one :author, class: :User
 
   def to_h
     {
