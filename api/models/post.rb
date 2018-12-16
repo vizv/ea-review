@@ -11,4 +11,13 @@ class Post < Sequel::Model(:posts)
       comments: comments.map(&:to_h)
     }
   end
+
+  def to_info_h
+    {
+      id: id,
+      title: title,
+      author: author.to_h,
+      comments_count: comments.count
+    }
+  end
 end
