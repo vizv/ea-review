@@ -3,7 +3,7 @@ class PostsController < Sinatra::Base
     # FIXME: add pagination
     posts = Post.all
 
-    json(posts.map(&:to_info_h))
+    json(posts: posts.map(&:to_info_h))
   end
 
   get '/post/:post_id' do

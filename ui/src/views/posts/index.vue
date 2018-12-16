@@ -1,10 +1,10 @@
 <template lang="pug">
 v-container
-  template(v-if="posts")
-    v-alert(v-if="posts.error" color="error" :value="true")
-      | Error: {{posts.error}}, click #[a(@click="loadData()") HERE] to reload.
+  template(v-if="data")
+    v-alert(v-if="data.error" color="error" :value="true")
+      | Error: {{data.error}}, click #[a(@click="loadData()") HERE] to reload.
     v-list.posts(v-else two-line)
-      template(v-for="(post, index) in posts")
+      template(v-for="(post, index) in data.posts")
         v-divider(v-if="index > 0")
         v-list-tile.post(:to="`/post/${post.id}`")
           v-list-tile-content
@@ -18,15 +18,15 @@ v-container
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-import PostInfo from '@/types/post-info.type'
+import PostList from '@/types/post-list.type'
 import RequestError from '@/types/request-error.type'
 
 @Component
 class PostsIndex extends Vue {
-  posts: Array<PostInfo> | RequestError | null = null
+  data: PostList | RequestError | null = null
 
   async loadData () {
-    this.posts = null
+    this.data = null
 
     try {
       const request = await fetch(`/api/v1/posts`)
@@ -34,12 +34,12 @@ class PostsIndex extends Vue {
       const data = await request.json()
       if (data.hasOwnProperty('error')) throw data as RequestError
 
-      this.posts = data as Array<PostInfo>
+      this.data = data as PostList
     } catch (ex) {
       if (!(<RequestError>ex).error) {
         ex = ({error: 'failed to request posts list'} as RequestError)
       }
-      this.posts = ex
+      this.data = ex
     }
   }
 

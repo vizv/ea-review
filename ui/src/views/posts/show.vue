@@ -1,21 +1,21 @@
 <template lang="pug">
 v-container
-  template(v-if="post")
-    v-alert(v-if="post.error" color="error" :value="true")
-      | Error: {{post.error}}, click #[a(@click="loadData()") HERE] to reload.
+  template(v-if="data")
+    v-alert(v-if="data.error" color="error" :value="true")
+      | Error: {{data.error}}, click #[a(@click="loadData()") HERE] to reload.
     template(v-else)
       article.post
         .header
-          h1.headline {{post.title}}
-          address.author By #[a(rel="author").name {{post.author.name}}]
+          h1.headline {{data.title}}
+          address.author By #[a(rel="author").name {{data.author.name}}]
         .content
           p(
-            v-for="(paragraph, index) in paragraphsOf(post.content)"
+            v-for="(paragraph, index) in paragraphsOf(data.content)"
             :key="index"
           ) {{paragraph}}
       .comments
         .comment(
-          v-for="comment in post.comments"
+          v-for="comment in data.comments"
           :key="comment.id"
         )
           address.author
@@ -35,10 +35,10 @@ import RequestError from '@/types/request-error.type'
 
 @Component
 class PostsShow extends Vue {
-  post: Post | RequestError | null = null
+  data: Post | RequestError | null = null
 
   async loadData () {
-    this.post = null
+    this.data = null
 
     try {
       const request = await fetch(`/api/v1/post/${this.$route.params.post_id}`)
@@ -46,12 +46,12 @@ class PostsShow extends Vue {
       const data = await request.json()
       if (data.hasOwnProperty('error')) throw data as RequestError
 
-      this.post = data as Post
+      this.data = data as Post
     } catch (ex) {
       if (!(<RequestError>ex).error) {
         ex = ({error: 'failed to request this post'} as RequestError)
       }
-      this.post = ex
+      this.data = ex
     }
   }
 
