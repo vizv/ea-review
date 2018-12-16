@@ -39,21 +39,21 @@ class PostsIndex extends Vue {
 
   async loadData (page: any = this.$route.query.page) {
     page = Number(page)
-    this.$router.push({query: page > 1 ? {page} : undefined})
+    this.$router.push({ query: page > 1 ? { page } : undefined })
     this.data = null
 
     try {
       const request = await fetch(`/api/v1/posts?page=${page}`)
 
       const data = await request.json()
-      if (data.hasOwnProperty('error')) throw data as RequestError
+      if (data.hasOwnProperty('error')) {
+        this.data = data as RequestError
+        return
+      }
 
       this.data = data as PostList
-    } catch (ex) {
-      if (!(<RequestError>ex).error) {
-        ex = ({error: 'failed to request posts list'} as RequestError)
-      }
-      this.data = ex
+    } catch {
+      this.data = ({ error: 'failed to request posts list' } as RequestError)
     }
   }
 

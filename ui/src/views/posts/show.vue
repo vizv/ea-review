@@ -45,14 +45,14 @@ class PostsShow extends Vue {
       const request = await fetch(`/api/v1/post/${this.$route.params.post_id}`)
 
       const data = await request.json()
-      if (data.hasOwnProperty('error')) throw data as RequestError
+      if (data.hasOwnProperty('error')) {
+        this.data = data as RequestError
+        return
+      }
 
       this.data = data as Post
-    } catch (ex) {
-      if (!(<RequestError>ex).error) {
-        ex = ({error: 'failed to request this post'} as RequestError)
-      }
-      this.data = ex
+    } catch {
+      this.data = ({ error: 'failed to request this post' } as RequestError)
     }
   }
 
