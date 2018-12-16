@@ -1,3 +1,5 @@
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+
 module.exports = {
   transpileDependencies: ['vuex-module-decorators'],
   devServer: {
