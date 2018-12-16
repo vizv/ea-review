@@ -1,8 +1,15 @@
 require 'bundler'
 Bundler.require
 
-Dir[File.join('controllers', '**/*_controller.rb')].each do |file|
-  require File.expand_path(file)
+require_relative 'db_init'
+
+puts "Loading components..."
+%w(model controller).each do |component|
+  puts "  Loading #{component}..."
+  Dir[File.join("#{component}s", "**/*_#{component}.rb")].each do |file|
+    require File.expand_path(file)
+    puts "    Load #{component} #{File.basename file}"
+  end
 end
 
 module EAReviewApp

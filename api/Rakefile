@@ -1,6 +1,0 @@
-desc "Start the API Server through rackup."
-task :serve do
-  `rerun --notify notify-send -- rackup --host 0.0.0.0 --port 9292`
-end
-
-task default: :serve
