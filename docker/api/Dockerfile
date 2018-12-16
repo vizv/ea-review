@@ -8,4 +8,5 @@ RUN bundle install --deployment --without test development
 
 COPY api /app
 
+ENV RACK_ENV production
 CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "--port", "9292"]
