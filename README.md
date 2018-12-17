@@ -1,5 +1,9 @@
 # EA Take-home Testing - Game Review Site
 
+## Live Demo
+
+https://ea-review-demo.viz.software/posts
+
 ## Deployment Guide
 
 ### Requirements
@@ -24,6 +28,13 @@ Just run with `make up`.
 2. copy generated images from `images` directory to the remote host
 3. use `docker load` to load these images
 4. run both containers within the same Docker network
+
+### Pull from Docker Hub
+
+You may pull images from [vizv/ea-review](https://cloud.docker.com/repository/docker/vizv/ea-review)
+
+* Use tag `ui-latest` or `ui-{tagref}` (such as `ui-1.0.0`) for front-end
+* Use tag `api-latest` or `api-{tagref}` (such as `api-1.0.0`) for back-end
 
 ### Note
 
