@@ -2,7 +2,6 @@ module.exports = {
   'render multiple posts in listing': browser => {
     browser
       .url(`${process.env.VUE_DEV_SERVER_URL}posts`)
-      .waitForElementVisible('#app', 5000)
       .assert.elementCount('.v-list > .post', 5)
       .end()
   },
@@ -23,7 +22,7 @@ module.exports = {
       .end()
   },
 
-  'use plural forml for comments count if count is not 1': browser => {
+  'use plural form for comments count if count is not 1': browser => {
     browser
       .url(`${process.env.VUE_DEV_SERVER_URL}posts`)
       .assert.containsText('.v-list', '0 comments')
@@ -38,7 +37,6 @@ module.exports = {
       .url(`${process.env.VUE_DEV_SERVER_URL}posts`)
       .assert.urlEquals(`${process.env.VUE_DEV_SERVER_URL}posts`)
       .click('.v-list > .post')
-      .waitForElementVisible('article.post', 5000)
       .assert.urlEquals(`${process.env.VUE_DEV_SERVER_URL}post/1`)
       .end()
   },
@@ -49,7 +47,6 @@ module.exports = {
       .assert.urlEquals(`${process.env.VUE_DEV_SERVER_URL}posts?page=2`)
       .assert.elementCount('.v-list > .post', 1)
       .click('.v-list > .post')
-      .waitForElementVisible('article.post', 5000)
       .back()
       .assert.urlEquals(`${process.env.VUE_DEV_SERVER_URL}posts?page=2`)
       .assert.elementCount('.v-list > .post', 1)
@@ -121,6 +118,7 @@ module.exports = {
       .url(`${process.env.VUE_DEV_SERVER_URL}posts?page=4`)
       .assert.urlEquals(`${process.env.VUE_DEV_SERVER_URL}posts?page=4`)
       .assert.elementCount('.v-alert', 1)
+      .assert.containsText('.v-alert', 'FAKE_ERROR')
       .assert.elementCount('.v-alert a', 1)
       .assert.containsText('.v-alert a', 'HERE')
       .end()
