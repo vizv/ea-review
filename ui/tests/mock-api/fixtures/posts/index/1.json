@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "FAKE_POST_TITLE_1",
+      "author": {
+        "id": 1,
+        "name": "FAKE_USER_NAME_1"
+      },
+      "comments_count": 0
+    },
+    {
+      "id": 2,
+      "title": "FAKE_POST_TITLE_2",
+      "author": {
+        "id": 2,
+        "name": "FAKE_USER_NAME_2"
+      },
+      "comments_count": 1
+    },
+    {
+      "id": 3,
+      "title": "FAKE_POST_TITLE_3",
+      "author": {
+        "id": 3,
+        "name": "FAKE_USER_NAME_3"
+      },
+      "comments_count": 2
+    },
+    {
+      "id": 4,
+      "title": "FAKE_POST_TITLE_4",
+      "author": {
+        "id": 4,
+        "name": "FAKE_USER_NAME_4"
+      },
+      "comments_count": 3
+    },
+    {
+      "id": 5,
+      "title": "FAKE_POST_TITLE_5",
+      "author": {
+        "id": 5,
+        "name": "FAKE_USER_NAME_5"
+      },
+      "comments_count": 4
+    }
+  ],
+  "page": {
+    "curr": 1,
+    "last": 5
+  }
+}

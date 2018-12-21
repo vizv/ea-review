@@ -1,0 +1,27 @@
+{
+  "id": 1,
+  "title": "FAKE_POST_TITLE_1",
+  "content": "FAKE_POST_CONTENT_1",
+  "author": {
+    "id": 1,
+    "name": "FAKE_USER_NAME_1"
+  },
+  "comments": [
+    {
+      "id": 1,
+      "content": "FAKE_COMMENT_CONTENT_1",
+      "author": {
+        "id": 1,
+        "name": "FAKE_USER_NAME_1"
+      }
+    },
+    {
+      "id": 2,
+      "content": "FAKE_COMMENT_CONTENT_2",
+      "author": {
+        "id": 2,
+        "name": "FAKE_USER_NAME_2"
+      }
+    }
+  ]
+}
