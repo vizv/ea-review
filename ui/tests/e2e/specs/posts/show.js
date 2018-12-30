@@ -2,6 +2,7 @@ module.exports = {
   'render a post with a title, a user name, and content': browser => {
     browser
       .url(`${process.env.VUE_DEV_SERVER_URL}post/1`)
+      .waitForElementVisible('.post', 500)
       .assert.elementCount('.post .headline', 1)
       .assert.containsText('.post .headline', 'FAKE_POST_TITLE_1')
       .assert.elementCount('.post .author', 1)
@@ -14,6 +15,7 @@ module.exports = {
   'render multiple comments in post display': browser => {
     browser
       .url(`${process.env.VUE_DEV_SERVER_URL}post/1`)
+      .waitForElementVisible('.post', 500)
       .assert.elementCount('.comments .comment', 2)
       .end()
   },
@@ -21,6 +23,7 @@ module.exports = {
   'render an author and content for a comment': browser => {
     browser
       .url(`${process.env.VUE_DEV_SERVER_URL}post/1`)
+      .waitForElementVisible('.post', 500)
       .assert.containsText('.comments .comment .author', 'FAKE_USER_NAME_1')
       .assert.containsText('.comments .comment .content', 'FAKE_COMMENT_CONTENT_1')
       .end()
@@ -29,6 +32,7 @@ module.exports = {
   'render no comments if post has no comment': browser => {
     browser
       .url(`${process.env.VUE_DEV_SERVER_URL}post/2`)
+      .waitForElementVisible('.post', 500)
       .assert.elementCount('.comments', 0)
       .end()
   },
@@ -36,6 +40,7 @@ module.exports = {
   'render multiple lines of content for the post': browser => {
     browser
       .url(`${process.env.VUE_DEV_SERVER_URL}post/3`)
+      .waitForElementVisible('.post', 500)
       .assert.elementCount('.post .content p', 2)
       .end()
   },
@@ -43,6 +48,7 @@ module.exports = {
   'render multiple lines of content for a comment': browser => {
     browser
       .url(`${process.env.VUE_DEV_SERVER_URL}post/4`)
+      .waitForElementVisible('.post', 500)
       .assert.elementCount('.comments .comment .content p', 2)
       .end()
   },
@@ -50,9 +56,11 @@ module.exports = {
   'render error page with refresh link on error': browser => {
     browser
       .url(`${process.env.VUE_DEV_SERVER_URL}post/1`)
+      .waitForElementVisible('.post', 500)
       .assert.urlEquals(`${process.env.VUE_DEV_SERVER_URL}post/1`)
       .assert.elementCount('.v-alert', 0)
       .url(`${process.env.VUE_DEV_SERVER_URL}post/5`)
+      .waitForElementVisible('.v-alert', 500)
       .assert.urlEquals(`${process.env.VUE_DEV_SERVER_URL}post/5`)
       .assert.elementCount('.v-alert', 1)
       .assert.containsText('.v-alert', 'FAKE_ERROR')
@@ -64,6 +72,7 @@ module.exports = {
   'render error page with refresh link if post was not found': browser => {
     browser
       .url(`${process.env.VUE_DEV_SERVER_URL}post/99`)
+      .waitForElementVisible('.v-alert', 500)
       .assert.urlEquals(`${process.env.VUE_DEV_SERVER_URL}post/99`)
       .assert.containsText('.v-alert', 'not found')
       .end()
