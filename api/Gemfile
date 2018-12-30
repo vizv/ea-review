@@ -13,3 +13,8 @@ group :development, :test do
   gem 'rerun'
   gem 'thin'
 end
+
+group :test do
+  gem 'rack-test'
+  gem 'rspec'
+end

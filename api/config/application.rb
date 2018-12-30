@@ -2,6 +2,7 @@ require 'bundler'
 Bundler.require
 
 require_relative 'db_init'
+require_relative 'db_seed'
 
 puts "Loading components..."
 %w(model controller).each do |component|
