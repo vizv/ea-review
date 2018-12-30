@@ -3,15 +3,7 @@ Bundler.require
 
 require_relative 'db_init'
 require_relative 'db_seed'
-
-puts "Loading components..."
-%w(model controller).each do |component|
-  puts "  Loading #{component}..."
-  Dir[File.join("app", "#{component}s", "**/*.rb")].each do |file|
-    require File.expand_path(file)
-    puts "    Load #{component} #{File.basename file}"
-  end
-end
+require_relative 'loader'
 
 class ApplicationController < Sinatra::Base
   use PostsController

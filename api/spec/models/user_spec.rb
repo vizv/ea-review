@@ -1,5 +1,3 @@
-require_relative '../../app/models/user'
-
 describe User do
   it 'should have many posts' do
     expect(User.association_reflections).to have_key(:posts)
