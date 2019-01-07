@@ -1,4 +1,9 @@
 describe User do
+  before(:context) do
+    @user = User.new name: 'FAKE_NAME'
+    @user.id = 0
+  end
+
   it 'should have many posts' do
     expect(User.association_reflections).to have_key(:posts)
     expect(User.association_reflections[:posts][:type]).to eq(:one_to_many)
@@ -10,9 +15,6 @@ describe User do
   end
 
   it 'can be serialized' do
-    user = User.new name: 'FAKE_NAME'
-    user.id = 0
-
-    expect(user.to_h).to eq(id: 0, name: 'FAKE_NAME')
+    expect(@user.to_h).to eq(id: 0, name: 'FAKE_NAME')
   end
 end
