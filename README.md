@@ -1,4 +1,4 @@
-# EA Take-home Testing - Game Review Site
+# EA Take-home Testing - Game Review Site [![Build Status](https://travis-ci.com/vizv/ea-review.svg?branch=develop)](https://travis-ci.com/vizv/ea-review)
 
 ## Live Demo
 
