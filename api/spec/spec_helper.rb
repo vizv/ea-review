@@ -5,10 +5,18 @@ SimpleCov.start do
 end
 
 require 'bundler'
-Bundler.require
+Bundler.require(:default, :test)
 
 require_relative '../config/db_init'
 require_relative '../config/loader'
 
-# RSpec.configure do |config|
-# end
+module RSpecMixin
+  include Rack::Test::Methods
+  def app()
+    PostsController
+  end
+end
+
+RSpec.configure do |config|
+  config.include RSpecMixin
+end

@@ -7,6 +7,7 @@ class PostsController < Sinatra::Base
     limit = 20
     curr = page < 1 ? 1 : page
     last = (Post.count - 1) / limit + 1
+    last = 1 if last < 1
     offset = (curr - 1) * limit
 
     posts = Post.limit(limit, offset).all
