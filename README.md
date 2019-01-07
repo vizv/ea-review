@@ -1,4 +1,4 @@
-# EA Take-home Testing - Game Review Site
+# EA Take-home Testing - Game Review Site [![Build Status](https://travis-ci.com/vizv/ea-review.svg?branch=develop)](https://travis-ci.com/vizv/ea-review)
 
 ## Live Demo
 
@@ -56,6 +56,12 @@ You may pull images from [vizv/ea-review](https://cloud.docker.com/repository/do
   - [X] ~~The application build should produce a docker container image as an artifact~~
   - [X] ~~The application should not have any runtime dependencies~~
 
+## Testing
+
+Just run `make test`.
+
+Note: only E2E testing is currectly available.
+
 ## Tasks
 
 ### Stage 0 - Preparation
@@ -76,6 +82,7 @@ You may pull images from [vizv/ea-review](https://cloud.docker.com/repository/do
   - [X] ~~Endpoint for post listing with mocked data~~
   - [X] ~~Integration of post listing~~
 - [X] ~~Database integration & mocking~~
+- [X] ~~E2E testing~~
 - [ ] Update data schema for the Stage 2
 - [ ] Design API for the Stage 2
 

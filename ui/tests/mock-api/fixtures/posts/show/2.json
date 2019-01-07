@@ -1,0 +1,10 @@
+{
+  "id": 2,
+  "title": "FAKE_POST_TITLE_2",
+  "content": "FAKE_POST_CONTENT_2",
+  "author": {
+    "id": 2,
+    "name": "FAKE_USER_NAME_2"
+  },
+  "comments": []
+}

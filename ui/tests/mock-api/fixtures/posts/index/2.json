@@ -1,0 +1,17 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "FAKE_POST_TITLE_1",
+      "author": {
+        "id": 1,
+        "name": "FAKE_USER_NAME_1"
+      },
+      "comments_count": 1
+    }
+  ],
+  "page": {
+    "curr": 2,
+    "last": 5
+  }
+}

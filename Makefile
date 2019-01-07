@@ -1,4 +1,4 @@
-.PHONY: all clean up down
+.PHONY: all test clean up down
 
 PROJNAME := ea-review
 
@@ -10,6 +10,16 @@ images/%.tar: $(wildcard docker/$(basename $(notdir $@))/**) \
 	docker build --tag  $(PROJNAME)-$(basename $(notdir $@)) \
                --file docker/$(basename $(notdir $@))/Dockerfile .
 	docker save --output $@ $(PROJNAME)-$(basename $(notdir $@))
+
+test:
+	# E2E Testing for UI
+	docker build --tag  $(PROJNAME)-ui:e2e-test \
+               --file docker/ui/test.Dockerfile .
+	docker run $(PROJNAME)-ui:e2e-test
+	# Unit Testing for API
+	docker build --tag  $(PROJNAME)-api:unit-test \
+               --file docker/api/test.Dockerfile .
+	docker run $(PROJNAME)-api:unit-test
 
 clean:
 	rm -rf images

@@ -1,3 +1,5 @@
 **/node_modules/
 ui/dist
+api/coverage
 images
+.travis.yml

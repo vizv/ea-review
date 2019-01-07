@@ -23,7 +23,7 @@ v-container
           :length="data.page.last"
           prev-icon="<"
           next-icon=">"
-          @input="loadData($event)"
+          @input="switchPage($event)"
         )
 </template>
 
@@ -37,9 +37,8 @@ import RequestError from '@/types/request-error.type'
 class PostsIndex extends Vue {
   data: PostList | RequestError | null = null
 
-  async loadData (page: any = this.$route.query.page) {
+  async loadData (page: any = this.$route.query.page || 1) {
     page = Number(page)
-    this.$router.push({ query: page > 1 ? { page } : undefined })
     this.data = null
 
     try {
@@ -59,6 +58,15 @@ class PostsIndex extends Vue {
 
   async created () {
     this.loadData()
+  }
+
+  switchPage (page: any) {
+    this.$router.push({ query: page > 1 ? { page } : {} })
+  }
+
+  beforeRouteUpdate (to: any, from: any, next: Function) {
+    this.loadData(to.query.page || 1)
+    next()
   }
 }
 

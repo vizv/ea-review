@@ -14,7 +14,7 @@ v-container
             v-for="(paragraph, index) in paragraphsOf(data.content)"
             :key="index"
           ) {{paragraph}}
-      .comments
+      .comments(v-if="data.comments.length > 0")
         .comment(
           v-for="comment in data.comments"
           :key="comment.id"
