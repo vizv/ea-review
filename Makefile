@@ -15,7 +15,11 @@ test:
 	# E2E Testing for UI
 	docker build --tag  $(PROJNAME)-ui:e2e-test \
                --file docker/ui/test.Dockerfile .
-	docker run $(PROJNAME)-ui:test
+	docker run $(PROJNAME)-ui:e2e-test
+	# Unit Testing for API
+	docker build --tag  $(PROJNAME)-api:unit-test \
+               --file docker/api/test.Dockerfile .
+	docker run $(PROJNAME)-api:unit-test
 
 clean:
 	rm -rf images
